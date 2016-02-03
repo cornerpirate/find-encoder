@@ -1,4 +1,27 @@
 #!/usr/bin/python
+# script used to review a file of tokens line by line.
+# it will work out the character set used and give you
+# a clue as to what you are dealing with.
+#
+# calling: ./find-encoder.py <fileoftokens>
+# for example: ./find-encoder.py cookies.txt          
+# 
+# Copyright 2016 cornerpirate.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# == Developers
+# cornerpirate - https://twitter.com/cornerpirate
 import sys
 # Dictionary of characters
 characters = {}
@@ -26,6 +49,7 @@ def displayCharacterSet():
     print "Unique Characters in values: " + uniquecharacters
     print "You can use that list to identify encoding scheme"
     print "===================="
+    print "The following shows the number of occurences of each character"
 
     # display the number of occurances for each characters
     # ordered alphabetically by the character
@@ -74,7 +98,7 @@ for cookie in f:
 f.close()
 
 # display high level summary
-print "Number of Cookies: " + str(count)
+print "Number of values: " + str(count)
 print "Minimum Length: " + str(min)
 print "Maximum Length: " + str(max)
 print "===================="
